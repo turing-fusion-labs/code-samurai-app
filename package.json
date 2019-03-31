@@ -1,0 +1,22 @@
+{
+  "name": "Turing_Fusion_Labs",
+  "version": "1.0.0",
+  "description": "Trending app for code samurai hackathon",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "TFL",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "lokijs": "^1.5.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
