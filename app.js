@@ -30,15 +30,16 @@ function databaseInitialize() {
 }
 
 //EJS
+var port = process.env.PORT || 7000;
 app.set('view engine', 'ejs')
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(session({key: 'sid',secret: 'srt', resave: false, saveUninitialized: false}));
-app.listen(7000);
+app.listen(port);
 
 // This is example of logging message in the console (black screen)
-console.log('Trending app started on http://localhost:7000');
+console.log('Trending app started on http://localhost:'+port);
 
 // function to match username and password
 function userPasswordMatch (userName, password) {
