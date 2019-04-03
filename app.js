@@ -48,28 +48,6 @@ function userPasswordMatch (userName, password) {
     else return false;
 }
 
-// load login page
-app.get('/', function (request, response) {
-    response.render('index', {message: null});
-});
-
-// click Welcome on login page
-app.post('/login', function (request, response) {
-    var loginName = request.body.loginName;
-    var password = request.body.password;
-
-    request.session.user = loginName;
-
-    if (userPasswordMatch(loginName, password) == true) {
-        var items = Item.find({});
-        console.log(items);
-        response.render('listpage', {items: items});
-    } else {
-        response.render('index', {message: "Invalid user name or password"});
-    }
-
-});
-
 // delete and sort based on name
 function deleteAndSort (itemName, itemValue) {
     var myItem = Item.chain().find({[itemName]:itemValue}).remove();
@@ -99,7 +77,27 @@ function likeAndSort (itemName, itemValue) {
 }
 
 // ---------- do not change above unless you know what you are doing :) -----------
+// ---------- use the helper functions above as and when you need them ------------
 
+// load login page
+app.get('/', function (request, response) {
+    response.render('index', {message: null});
+});
+
+// click Welcome on login page
+app.post('/login', function (request, response) {
+    var loginName = request.body.loginName;
+    var password = request.body.password;
+
+    request.session.user = loginName;
+
+    response.render('listpage', {items: Item.find()});
+
+    // check is password is good or not, if not load same page with error
+    //response.render('index', {message: "Invalid user name or password"});
+
+
+});
 
 // when the link Add New Item is clicked
 app.get('/additem', function (request, response) {
