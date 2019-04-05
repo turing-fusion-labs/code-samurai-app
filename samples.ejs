@@ -1,0 +1,79 @@
+Go-to
+http://localhost:7000/StartHere.pdf
+
+<!-- -----------------------
+// sample of table
+---------------------------->
+
+    <table class="highlight">
+        <tr>
+            <th>Song</th><th>Singer</th><th>Added By</th><th>Likes</th><th>Actions</th>
+        </tr>
+
+        <% items.forEach(function(item){  %>
+        <!-- everything in this forEach loop will repeat for each row of data -->
+        <tr>
+
+
+            <td> first column data from variable can go here  </td>
+            <td> second column data from variable can go here </td>
+            <td> third column data from variable can go here </td>
+            <td> forth column data from variable can go here </td>
+            <td> fifth column data from variable can go here </td>
+
+
+        </tr>
+        <% }) %>
+    </table>
+
+
+<!-- -----------------------
+// sample of if statement in JavaScript
+---------------------------->
+
+if (condition) {
+    code for when condition is true
+}
+else {
+    code for when condition is false
+}
+
+double == is used to compare if both sides have same value
+weather == cold
+userPasswordMatch(loginName, password) == true
+
+<!-- -----------------------
+// sample of <a> tag when linking to external site
+---------------------------->
+
+<a href=" link value goes here, should start with http " target="opensesame"> display text for link goes here, can be a variable </a>
+
+
+<!-- -----------------------
+// sample of <a> tag with values sent back to app.js
+---------------------------->
+
+<a href=" link action name goes here, should start with / "> display text for link goes here, can be a variable </a>
+
+If we need to send song name on click of link the href value should look like
+    href="/like?song=<% item.song %>"
+
+
+<!-- -----------------------
+// how to get values in app.js when values are part of link or <a> tag
+---------------------------->
+
+When values sent as part of link, we need to use
+var song = request.query.song;
+Notice instead of request.body we are using request.query
+
+<!-- -----------------------
+// reference HTML, styling, colors, icons
+---------------------------->
+
+Go to https://materializecss.com/ to get samples on
+HTML tags
+Styling
+Colors
+Icons
+
